@@ -52,7 +52,7 @@ springdoc:
     path: /api-docs
   javadoc:
     enabled: true
-  packages-to-scan: org.example.projectboard
+  packages-to-scan: org.example.projectboardadmin
 
 ---
 spring:
