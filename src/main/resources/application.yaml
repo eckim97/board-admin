@@ -3,9 +3,9 @@ management.endpoints.web.exposure.include: "*"
 
 logging:
   level:
-    org.example.projectboardadmin: debug
+    org.example.projectboard: debug
     org.springframework.web.servlet: debug
-    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.orm.jdbc.bind: TRACE # 하이버네이트 6.0 부터 다음과 같이 문법 변경됨
 
 server.port: 8081
 
@@ -57,7 +57,15 @@ springdoc:
 ---
 spring:
   config.activate.on-profile: test
-  datasource.url: jdbc:h2:mem:testdb
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  sql:
+    init:
+      mode: always
 
 
 
