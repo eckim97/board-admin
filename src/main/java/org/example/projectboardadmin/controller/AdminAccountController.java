@@ -1,5 +1,6 @@
 package org.example.projectboardadmin.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -10,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/admin/members")
 @Controller
-public class AdminUserAccountController {
+public class AdminAccountController {
 
     @GetMapping
     public String members(
             @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
-            Model model
+            Model model,
+            HttpServletRequest request
     ) {
+        model.addAttribute("requestURI", request.getRequestURI());
         return "admin/members";
     }
 
