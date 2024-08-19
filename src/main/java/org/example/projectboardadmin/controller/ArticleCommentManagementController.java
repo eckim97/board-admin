@@ -1,5 +1,6 @@
 package org.example.projectboardadmin.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -15,9 +16,11 @@ public class ArticleCommentManagementController {
     @GetMapping
     public String articleComments(
             @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
-            Model model
+            Model model,
+            HttpServletRequest request
     ) {
-        return "management/articleComments";
+        model.addAttribute("requestURI", request.getRequestURI());
+        return "management/article-comments";
     }
 
 }
