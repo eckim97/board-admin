@@ -6,6 +6,7 @@ logging:
     org.example.projectboardadmin: debug
     org.springframework.web.servlet: debug
     org.hibernate.orm.jdbc.bind: TRACE # 하이버네이트 6.0 부터 다음과 같이 문법 변경됨
+    org.springframework.web.client.RestTemplate: debug
 
 server.port: 8081
 
