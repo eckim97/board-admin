@@ -6,7 +6,6 @@ import org.example.projectboardadmin.dto.ArticleDto;
 import org.example.projectboardadmin.dto.UserAccountDto;
 import org.example.projectboardadmin.dto.properties.ProjectProperties;
 import org.example.projectboardadmin.dto.response.ArticleClientResponse;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -19,8 +18,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.client.MockRestServiceServer;
-import org.springframework.test.web.client.match.MockRestRequestMatchers;
-import org.springframework.test.web.client.response.MockRestResponseCreators;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,7 +30,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 @ActiveProfiles("test")
 @DisplayName("비즈니스 로직 - 게시글 관리")
-class ArticleCommentManagementServiceTest {
+class ArticleManagementServiceTest {
 
 //    @Disabled("실제 API 호출 결과 관찰용으로 평상시엔 비활성화")
     @DisplayName("실제 API 호출 테스트")
@@ -62,7 +59,6 @@ class ArticleCommentManagementServiceTest {
         assertThat(result).isNotNull();
     }
 }
-
 
 
     @DisplayName("API mocking 테스트")
@@ -118,9 +114,9 @@ class ArticleCommentManagementServiceTest {
 
         }
 
-        @DisplayName("게시글 API을 호출하면, 게시글을 가져온다.")
+        @DisplayName("게시글 ID와 함께 게시글 API을 호출하면, 게시글을 가져온다.")
         @Test
-        void givenNothing_whenCallingArticleApi_thenReturnsArticle() throws Exception {
+        void givenArticleId_whenCallingArticleApi_thenReturnsArticle() throws Exception {
             // Given
             Long articleId = 1L;
             ArticleDto expectedArticle = createArticleDto("게시판", "글");
@@ -145,7 +141,7 @@ class ArticleCommentManagementServiceTest {
 
         @DisplayName("게시글 ID와 함께 게시글 삭제 API을 호출하면, 게시글을 삭제한다.")
         @Test
-        void givenArticleId_whenCallingDeleteArticleApi_thenDeletesAnArticle() throws Exception {
+        void givenArticleId_whenCallingDeleteArticleApi_thenDeletesArticle() throws Exception {
             // Given
             Long articleId = 1L;
             server
