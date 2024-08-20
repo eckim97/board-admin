@@ -9,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class ArticleManagementService {
-    public List<ArticleDto> getARrticles() {
+    public List<ArticleDto> getArticles() {
         return List.of();
     }
 
