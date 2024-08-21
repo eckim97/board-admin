@@ -47,12 +47,12 @@ class ArticleManagementServiceTest {
 
     @DisplayName("게시글 API를 호출하면, 게시글을 가져온다.")
     @Test
-    void given_when_then() {
+    void givenNothing_whenCallingArticleApi_thenReturnsArticleList() {
         // given
 
 
         // when
-        List<ArticleDto> result = sut.getARrticles();
+        List<ArticleDto> result = sut.getArticles();
 
         // then
         System.out.println(result.stream().findFirst());
@@ -68,11 +68,8 @@ class ArticleManagementServiceTest {
     @Nested
     class RestTemplateTest {
         private final ArticleManagementService sut;
-
         private final ProjectProperties projectProperties;
-
         private final MockRestServiceServer server;
-
         private final ObjectMapper mapper;
 
         @Autowired
@@ -102,7 +99,7 @@ class ArticleManagementServiceTest {
                     ));
 
             // when
-            List<ArticleDto> result = sut.getARrticles();
+            List<ArticleDto> result = sut.getArticles();
 
             // then
             assertThat(result).first()
@@ -174,8 +171,6 @@ class ArticleManagementServiceTest {
         private UserAccountDto createUserAccountDto() {
             return UserAccountDto.of(
                     "ecTest",
-                    "pw",
-                    Set.of(RoleType.ADMIN),
                     "eunchan-test@email.com",
                     "eunchan-test",
                     "test memo"
