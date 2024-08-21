@@ -17,11 +17,7 @@ import java.util.List;
 public class AdminAccountController {
 
     @GetMapping
-    public String members(
-            Model model,
-            HttpServletRequest request
-    ) {
-        model.addAttribute("requestURI", request.getRequestURI());
+    public String members() {
         return "admin/members";
     }
 
