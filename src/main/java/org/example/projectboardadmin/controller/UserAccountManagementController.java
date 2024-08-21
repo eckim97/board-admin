@@ -15,11 +15,8 @@ public class UserAccountManagementController {
 
     @GetMapping
     public String userAccounts(
-            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
-            Model model,
-            HttpServletRequest request
+            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        model.addAttribute("requestURI", request.getRequestURI());
         return "management/user-accounts";
     }
 

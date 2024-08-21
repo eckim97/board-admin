@@ -15,12 +15,8 @@ public class ArticleCommentManagementController {
 
     @GetMapping
     public String articleComments(
-            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
-            Model model,
-            HttpServletRequest request
+            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        model.addAttribute("requestURI", request.getRequestURI());
         return "management/article-comments";
     }
-
 }
