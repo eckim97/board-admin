@@ -6,6 +6,7 @@ import org.example.projectboardadmin.dto.ArticleDto;
 import org.example.projectboardadmin.dto.UserAccountDto;
 import org.example.projectboardadmin.dto.properties.ProjectProperties;
 import org.example.projectboardadmin.dto.response.ArticleClientResponse;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
