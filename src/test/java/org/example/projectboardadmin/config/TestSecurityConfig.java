@@ -16,7 +16,7 @@ import java.util.Set;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 
-@Import(SecurityContext.class)
+@Import(SecurityConfig.class)
 @TestConfiguration
 public class TestSecurityConfig {
     @MockBean private AdminAccountService adminAccountService;
