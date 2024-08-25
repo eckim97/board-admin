@@ -28,6 +28,8 @@ spring:
   h2.console.enabled: false
   sql.init.mode: always
 
+  thymeleaf:
+    cache: false
   thymeleaf3:
     decoupled-logic: true
   security:
